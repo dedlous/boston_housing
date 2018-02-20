@@ -13882,8 +13882,9 @@ QmCC
 <p>class sklearn.model_selection.GridSearchCV(estimator, param_grid, scoring=None, fit_params=None, n_jobs=1, iid=True, refit=True, cv=None, verbose=0, pre_dispatch=‘2*n_jobs’, error_score=’raise’, return_train_score=’warn’)</p>
 <p>传入CV参数 做为cross-validation generator</p>
 <p>不同超参数的组合方式及其计算结果以字典的形式保存在 clf.cv<em>results</em>中</p>
-<p>网格搜索时如果不使用交叉验证无法选择出参数最优的模型</p>
-<p>交叉验证将数据分为K份，并且在这K份上都进行了验证，保证我们选取的模型参数是最优的</p>
+<p>网格搜索时如果不使用交叉验证，我们在验证集上的跑分只是针对这一个训练\验证集，我们无法确认这一个训练\验证集的划分有普遍性</p>
+<p>那我们所选取的最佳参数组合，只是在这种训练\验证集下的最佳组合，对于未知数据，我们无法确保模型的表现</p>
+<p>而交叉验证，可以避免这种由于训练\验证集合划分导致所选取的参数的误差</p>
 
 </div>
 </div>
